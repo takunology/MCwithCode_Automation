@@ -13,9 +13,15 @@ namespace Part2
             Console.WriteLine("Start!");
 
             //コマンド用インスタンス
-            Commands mcCommand = new Commands();
+            Commands command = new Commands();
 
-            await mcCommand.Teleport("Takunology");
+            await command.getPosition("Takunology");
+
+            float x = command.PlayerPosX;
+            float y = command.PlayerPosY;
+            float z = command.PlayerPosZ;
+
+            await command.Teleport("Takunology", x+5, y, z-2);
         }
     }
 
