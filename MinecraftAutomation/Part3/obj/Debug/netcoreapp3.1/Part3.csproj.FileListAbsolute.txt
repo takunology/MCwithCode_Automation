@@ -1,0 +1,4 @@
+F:\GitHub\MCwithCode_Automation\MinecraftAutomation\Part3\bin\Debug\netcoreapp3.1\Part3.exe
+F:\GitHub\MCwithCode_Automation\MinecraftAutomation\Part3\obj\Debug\netcoreapp3.1\Part3.csprojAssemblyReference.cache
+F:\GitHub\MCwithCode_Automation\MinecraftAutomation\Part3\obj\Debug\netcoreapp3.1\Part3.AssemblyInfoInputs.cache
+F:\GitHub\MCwithCode_Automation\MinecraftAutomation\Part3\obj\Debug\netcoreapp3.1\Part3.AssemblyInfo.cs
