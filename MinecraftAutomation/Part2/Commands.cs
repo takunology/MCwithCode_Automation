@@ -36,12 +36,5 @@ namespace Part2
             PlayerPosY = float.Parse(splitResult[1]);
             PlayerPosZ = float.Parse(splitResult[2]);
         }
-
-        public async Task setBlock(string blockName, float x, float y, float z)
-        {
-            await rcon.ConnectAsync();
-            string result = await rcon.SendCommandAsync($"/setblock {blockName} {x} {y} {z}");
-            Console.WriteLine(result);
-        }
     }
 }

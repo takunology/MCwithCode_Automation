@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Part2
+namespace Part3
 {
     /// <summary>
     /// Minecraft に投げるコマンド
@@ -23,20 +23,25 @@ namespace Part2
             Console.WriteLine(result);
         }
 
-        public async Task getPosition(string playerName)
+        public async Task GetPosition(string playerName)
         {
             await rcon.ConnectAsync();
             // Minecraft 1.13 以降では data コマンドで座標を得られる
             // 1.12 以前では tp ~ ~ ~ で現在地へテレポートして座標を得る
             string result = await rcon.SendCommandAsync($"/data get entity {playerName} Pos");
-            // 正規表現による文字列フィルタ
             string filterResult = Regex.Replace(result, @"[^0-9-,.]", "");
-            // カンマ区切りで座標をそれぞれ得る
             string[] splitResult = filterResult.Split(",");
 
             PlayerPosX = float.Parse(splitResult[0]);
             PlayerPosY = float.Parse(splitResult[1]);
             PlayerPosZ = float.Parse(splitResult[2]);
+        }
+
+        public async Task SetBlock(float x, float y, float z, string blockName)
+        {
+            await rcon.ConnectAsync();
+            string result = await rcon.SendCommandAsync($"/setblock {x} {y} {z} {blockName}");
+            Console.WriteLine(result);
         }
     }
 }

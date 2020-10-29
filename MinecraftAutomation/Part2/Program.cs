@@ -9,7 +9,7 @@ namespace Part2
     {
         static async Task Main(string[] args)
         {
-            
+
             Console.WriteLine("Start!");
 
             //コマンド用インスタンス
@@ -21,9 +21,9 @@ namespace Part2
             float y = command.PlayerPosY;
             float z = command.PlayerPosZ;
 
-            await command.Teleport("Takunology", x+5, y, z-2);
+            Console.WriteLine($"X : {x}");
+            Console.WriteLine($"Y : {y}");
+            Console.WriteLine($"Z : {z}");
         }
     }
-
-
 }
