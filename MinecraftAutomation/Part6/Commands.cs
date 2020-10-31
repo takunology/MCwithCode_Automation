@@ -1,12 +1,9 @@
-﻿using CoreRCON.Parsers.Standard;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Part4
+namespace Part6
 {
     /// <summary>
     /// Minecraft に投げるコマンド
@@ -16,6 +13,9 @@ namespace Part4
         public float PlayerPosX;
         public float PlayerPosY;
         public float PlayerPosZ;
+
+        public int BlockCount;
+        public List<string> BlockCoordinate = new List<string>();
 
         public async Task Teleport(string playerName, float x, float y, float z)
         {
@@ -172,5 +172,105 @@ namespace Part4
                 }
             }
         }
+
+        public async Task TestForBlock(int x, int y, int z, string blockName)
+        {
+            await rcon.ConnectAsync();
+            string result = await rcon.SendCommandAsync($"/execute if block {x} {y} {z} {blockName}");
+            
+            Console.Write($"Search for {x} {y} {z} ");
+
+            if (result.Contains("passed"))
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Hit!");
+                Console.ForegroundColor = ConsoleColor.White;
+                BlockCount++;
+
+                //このままでは面白くないので座標を吐き出す
+                BlockCoordinate.Add($"{blockName} : {x} {y} {z}");
+            }
+            else
+                Console.WriteLine();
+        }
+
+        public async Task SearchBlock(int Sx, int Sy, int Sz, int Ex, int Ey, int Ez, string blockName)
+        {
+            if (Sx > Ex || Sy < Ey || Sz > Ez)
+                return;
+
+            await rcon.ConnectAsync();
+
+            for (int y = Sy; y > Ey; y--)
+            {
+                for (int x = Sx; x < Ex; x++)
+                {
+                    for (int z = Sz; z < Ez; z++)
+                    {
+                        await TestForBlock(x, y, z, blockName);
+                    }
+                }
+            }
+        }
+
+        //ここからPart6
+        //座標が大きくなる方向で使用する
+        public async Task GroundLeveling(int Sx, int Sy, int Sz, int Ex, int Ey, int Ez)
+        {
+            if (Sx > Ex || Sy > Ey || Sz > Ez)
+                return;
+
+            await rcon.ConnectAsync();
+
+            for(int y = Sy; y < Ey; y++)
+            {
+                for(int x = Sx; x < Ex; x++)
+                {
+                    for (int z = Sz; z < Ez; z++)
+                    {
+                        string result = await rcon.SendCommandAsync($"/setblock {x} {y} {z} minecraft:air");
+                        Console.WriteLine(result);
+                    }
+                }
+            }
+        }
+
+        //特定のブロックを残して整地
+        public async Task GroundLeveling(int Sx, int Sy, int Sz, int Ex, int Ey, int Ez, List<string> blockList)
+        {
+            if (Sx > Ex || Sy > Ey || Sz > Ez)
+                return;
+
+            await rcon.ConnectAsync();
+
+            for (int y = Sy; y < Ey; y++)
+            {
+                for (int x = Sx; x < Ex; x++)
+                {
+                    for (int z = Sz; z < Ez; z++)
+                    {
+                        foreach(string block in blockList)
+                        {
+                            string blockName = await rcon.SendCommandAsync($"/execute if block {x} {y} {z} {block}");
+                            Console.WriteLine(blockName);
+                            if (blockName.Contains("failed"))
+                            {
+                                //登録されたブロックと一致しなかったら整地
+                                string result = await rcon.SendCommandAsync($"/setblock {x} {y} {z} minecraft:air");
+                                Console.WriteLine(result);
+                                //break;
+                            }
+                            else
+                            {
+                                //ブロックが一致したらパス
+                                break;           
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
     }
 }
