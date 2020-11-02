@@ -249,23 +249,31 @@ namespace Part6
                 {
                     for (int z = Sz; z < Ez; z++)
                     {
+                        bool isPassed = false; //ブロック一致フラグ
+
+                        //ブロックリストから検索
                         foreach(string block in blockList)
                         {
                             string blockName = await rcon.SendCommandAsync($"/execute if block {x} {y} {z} {block}");
                             Console.WriteLine(blockName);
-                            if (blockName.Contains("failed"))
+                            if (blockName.Contains("passed"))
                             {
-                                //登録されたブロックと一致しなかったら整地
-                                string result = await rcon.SendCommandAsync($"/setblock {x} {y} {z} minecraft:air");
-                                Console.WriteLine(result);
-                                //break;
-                            }
-                            else
-                            {
-                                //ブロックが一致したらパス
-                                break;           
+                                //登録されたブロックと一致したらフラグをたてる
+                                isPassed = true;
+                                break;
                             }
                         }
+
+                        if (isPassed)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            string result = await rcon.SendCommandAsync($"/setblock {x} {y} {z} minecraft:air");
+                            Console.WriteLine(result);
+                        }
+                        
                     }
                 }
             }
