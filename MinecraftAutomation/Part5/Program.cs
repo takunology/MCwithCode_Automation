@@ -19,8 +19,14 @@ namespace Part5
             int z = (int)command.PlayerPosZ;
 
             string blockName = "minecraft:diamond_ore";
-            await command.SearchBlocks(x, y-30, z, x + 100, 0, z + 100, blockName);
-            //Console.WriteLine($"\n{blockName} : {command.BlockCount}");
+            await command.SearchBlocks(x, y, z, x + 10, 0, z + 10, blockName);
+             
+            Console.WriteLine($"\n{blockName} : {command.BlockCount}");
+
+            foreach(string item in command.BlockCoordinate)
+            {
+                Console.WriteLine(item);
+            }
 
             OutFiles outfile = new OutFiles();
             outfile.OutOreCoordinate(command.BlockCoordinate);

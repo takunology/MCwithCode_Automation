@@ -19,8 +19,6 @@ namespace Part6
             int y = (int)command.PlayerPosY;
             int z = (int)command.PlayerPosZ;
 
-            //await command.GroundLeveling(x, y, z, x + 50, y + 50, z + 50);
-
             //任意のブロックを除外した整地
             List<string> Blocks = new List<string>
             {
@@ -31,13 +29,11 @@ namespace Part6
                 "minecraft:dark_oak_log"
             };
 
-            /*Blocks.Add("minecraft:birch_log"); //白樺の木
-            Blocks.Add("minecraft:oak_log"); //オークの木
-            Blocks.Add("minecraft:jungle_log");
-            Blocks.Add("minecraft:acacia_log");
-            Blocks.Add("minecraft:dark_oak_log");*/
-            
             await command.GroundLeveling(x, y, z, x + 10, y + 10, z + 10, Blocks);
+
+            //await command.GroundLeveling(x, y, z, x + 10, y + 10, z + 50);
+            //await command.GroundLeveling(x, y, z, x + 20, y + 30, z + 20, "minecraft:oak_log");
+
         }
 
 

@@ -1,0 +1,5 @@
+﻿minecraft:diamond_ore : -31 3 147
+minecraft:diamond_ore : -31 3 148
+minecraft:diamond_ore : -30 3 147
+minecraft:diamond_ore : -30 2 147
+minecraft:diamond_ore : -30 2 148

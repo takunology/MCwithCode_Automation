@@ -141,8 +141,9 @@ namespace Part6
             {
                 for(int j = 0; j < range; j++)
                 {
-                    for(int k = 0; k < range; k++)
+                    for (int k = 0; k < range; k++)
                     {
+
                         result = await rcon.SendCommandAsync($"/setblock {x + j} {(y - 1) + i} {z + k} minecraft:stone");
                         Console.WriteLine(result);
                     }
@@ -235,6 +236,36 @@ namespace Part6
             }
         }
 
+        public async Task GroundLeveling(int Sx, int Sy, int Sz, int Ex, int Ey, int Ez, string blockName)
+        {
+            if (Sx > Ex || Sy > Ey || Sz > Ez)
+                return;
+
+            await rcon.ConnectAsync();
+
+            for (int y = Sy; y < Ey; y++)
+            {
+                for (int x = Sx; x < Ex; x++)
+                {
+                    for (int z = Sz; z < Ez; z++)
+                    { 
+                        string result = await rcon.SendCommandAsync($"/execute if block {x} {y} {z} {blockName}");
+                        if (result.Contains("passed"))
+                        {
+                            Console.WriteLine(result);
+                            break;
+                        }
+                        else
+                        {
+                            //除外するブロックではない場合
+                            result = await rcon.SendCommandAsync($"/setblock {x} {y} {z} minecraft:air");
+                            Console.WriteLine(result);
+                        }
+                    }
+                }
+            }
+        }
+
         //特定のブロックを残して整地
         public async Task GroundLeveling(int Sx, int Sy, int Sz, int Ex, int Ey, int Ez, List<string> blockList)
         {
@@ -264,16 +295,11 @@ namespace Part6
                             }
                         }
 
-                        if (isPassed)
-                        {
-                            break;
-                        }
-                        else
+                        if (!isPassed)
                         {
                             string result = await rcon.SendCommandAsync($"/setblock {x} {y} {z} minecraft:air");
                             Console.WriteLine(result);
-                        }
-                        
+                        }                        
                     }
                 }
             }

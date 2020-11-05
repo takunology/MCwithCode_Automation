@@ -178,21 +178,18 @@ namespace Part5
         {
             await rcon.ConnectAsync();
             string result = await rcon.SendCommandAsync($"/execute if block {x} {y} {z} {blockName}");
-            
-            Console.Write($"Search for {x} {y} {z} ");
-
+            Console.Write($"Search for {x} {y} {z}");
             if (result.Contains("passed"))
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Hit!");
+                Console.Write(" Hit!");
                 Console.ForegroundColor = ConsoleColor.White;
+                
                 BlockCount++;
 
-                //このままでは面白くないので座標を吐き出す
                 BlockCoordinate.Add($"{blockName} : {x} {y} {z}");
             }
-            else
-                Console.WriteLine();
+            Console.WriteLine();
         }
 
         //座標が大きくなる方向で使用する
