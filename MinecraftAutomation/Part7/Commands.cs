@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -48,10 +49,10 @@ namespace Part7
         public async Task SetIchimatsu(int x, int y, int z, int range)
         {
             await rcon.ConnectAsync();
-            
-            for(int i = 0; i < range; i++)
+
+            for (int i = 0; i < range; i++)
             {
-                if(i % 2 == 0)
+                if (i % 2 == 0)
                 {
                     for (int j = 0; j < range; j++)
                     {
@@ -137,9 +138,9 @@ namespace Part7
                 return;
 
             //石ブロックの配置
-            for(int i = 0; i < 2; i++)
+            for (int i = 0; i < 2; i++)
             {
-                for(int j = 0; j < range; j++)
+                for (int j = 0; j < range; j++)
                 {
                     for (int k = 0; k < range; k++)
                     {
@@ -151,9 +152,9 @@ namespace Part7
             }
 
             //中身をくり抜く
-            for(int i = 1; i < range - 1; i++)
+            for (int i = 1; i < range - 1; i++)
             {
-                for(int j = 1; j < range - 1; j++)
+                for (int j = 1; j < range - 1; j++)
                 {
                     result = await rcon.SendCommandAsync($"/setblock {x + i} {y} {z + j} minecraft:air");
                     Console.WriteLine(result);
@@ -161,11 +162,11 @@ namespace Part7
             }
 
             //水源を配置
-            for(int i = 1; i < range - 1; i++)
+            for (int i = 1; i < range - 1; i++)
             {
                 for (int j = 1; j < range - 1; j++)
                 {
-                    if(i == j)
+                    if (i == j)
                     {
                         result = await rcon.SendCommandAsync($"/setblock {x + i} {y} {z + j} minecraft:water");
                         Console.WriteLine(result);
@@ -178,7 +179,7 @@ namespace Part7
         {
             await rcon.ConnectAsync();
             string result = await rcon.SendCommandAsync($"/execute if block {x} {y} {z} {blockName}");
-            
+
             Console.Write($"Search for {x} {y} {z} ");
 
             if (result.Contains("passed"))
@@ -221,9 +222,9 @@ namespace Part7
 
             await rcon.ConnectAsync();
 
-            for(int y = Sy; y < Ey; y++)
+            for (int y = Sy; y < Ey; y++)
             {
-                for(int x = Sx; x < Ex; x++)
+                for (int x = Sx; x < Ex; x++)
                 {
                     for (int z = Sz; z < Ez; z++)
                     {
@@ -246,7 +247,7 @@ namespace Part7
                 for (int x = Sx; x < Ex; x++)
                 {
                     for (int z = Sz; z < Ez; z++)
-                    { 
+                    {
                         string result = await rcon.SendCommandAsync($"/execute if block {x} {y} {z} {blockName}");
                         if (result.Contains("passed"))
                         {
@@ -280,7 +281,7 @@ namespace Part7
                         bool isPassed = false; //ブロック一致フラグ
 
                         //ブロックリストから検索
-                        foreach(string block in blockList)
+                        foreach (string block in blockList)
                         {
                             string blockName = await rcon.SendCommandAsync($"/execute if block {x} {y} {z} {block}");
                             Console.WriteLine(blockName);
@@ -296,12 +297,13 @@ namespace Part7
                         {
                             string result = await rcon.SendCommandAsync($"/setblock {x} {y} {z} minecraft:air");
                             Console.WriteLine(result);
-                        }                        
+                        }
                     }
                 }
             }
         }
 
+        //ここからPart7
         public async Task SetTorch(int x, int y, int z)
         {
             await rcon.ConnectAsync();
@@ -309,19 +311,47 @@ namespace Part7
             Console.WriteLine(result);
         }
 
-        public async Task SetTorch(int Sx, int Sz, int Ex, int Ez)
+        public async Task SetTorch(int Sx, int Sz, int Ex, int Ez, List<string> BlockList)
         {
             await rcon.ConnectAsync();
 
-            for(int x = Sx; x < Ex; x++)
+            for (int x = Sx; x < Ex; x++)
             {
-                for(int z = Sz; z < Ez; z++)
+                for (int z = Sz; z < Ez; z++)
                 {
-                    if(x % 7 == 0 && z % 7 == 0)
+                    if (x % 7 == 0 && z % 7 == 0)
                     {
-                        string result = await rcon.SendCommandAsync($"/setblock {x} {PlayerPosY} {z} minecraft:torch");
-                        Console.WriteLine(result);
-                        await Task.Delay(100);
+                        for (int y = 255; y > (int)PlayerPosY; y--)
+                        {
+                            string result = await rcon.SendCommandAsync($"/execute if block {x} {y} {z} minecraft:air");
+                            //その座標が空気ブロックである
+                            if(result.Contains("passed"))
+                            {
+                                //1ブロック下が空気ブロックでない
+                                result = await rcon.SendCommandAsync($"/execute if block {x} {y - 1} {z} minecraft:air");
+                                if (result.Contains("failed"))
+                                {
+                                    bool isPutable = true;
+                                    foreach(string block in BlockList)
+                                    {
+                                        //水源、溶岩だったら置けない
+                                        result = await rcon.SendCommandAsync($"/execute if block {x} {y - 1} {z} {block}");
+                                        if (result.Contains("passed"))
+                                        {
+                                            isPutable = false;
+                                            break;
+                                        }
+                                    }
+                                    if (isPutable)
+                                    {
+                                        result = await rcon.SendCommandAsync($"/setblock {x} {y} {z} minecraft:torch");
+                                        Console.WriteLine(result);
+                                    }
+
+                                }
+
+                            }
+                        }
                     }
                 }
             }

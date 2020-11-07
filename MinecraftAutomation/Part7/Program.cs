@@ -19,9 +19,16 @@ namespace Part7
             int y = (int)command.PlayerPosY;
             int z = (int)command.PlayerPosZ;
 
-            await command.GroundLeveling(x, y, z, x + 100, y + 2, z + 100);
+            //除外するブロックリスト（ブロックだけに...w）
+            List<string> blockList = new List<string>
+            {
+                "minecraft:water",
+                "minecraft:lava",
+            };
 
-            //await command.SetTorch(x, z, x + 100, z + 100);
+            //一旦整地してから湧きつぶす
+            await command.GroundLeveling(x, y, z, x + 50, y + 20, z + 50);
+            await command.SetTorch(x, z, x + 50, z + 50, blockList);
         }
     }
 }
