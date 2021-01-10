@@ -1,7 +1,15 @@
 # MCwithCode_Automation
- Minecraft with Code Project による、Minecraft 自動化のサンプルコードを公開しています。自動化は C# 言語を用いて RCON プロトコルを介してコマンドを送信することによって実現できます。使用するには Minecraft のサーバおよび RCON 接続許可が必要です。
+ Minecraft with Code Project による、Minecraft 自動化のサンプルコードを公開しています。自動化は C# 言語を用い、 RCON プロトコルを介してコマンドを送信することによって実現できます。使用するには Minecraft のサーバおよび RCON 接続許可が必要です。
 
 https://www.mcwithcode.com/Automation
+
+ ## 必要環境
+
+ - Visual Studio などの開発環境
+ - Minecraft Server (1.13 ~ 1.16.3)
+ - Minecraft Client (RCON 設定済み)
+ - CoreRCON ライブラリ (Version 5.0.0) </br>
+   詳細 : https://github.com/ScottKaye/CoreRCON
 
  </br>
 
@@ -27,8 +35,8 @@ static void main()
 ```cs
 async Task Command()
 {
-    rcon.ConnectAsync();
-    rcon.SendCommandAsync("< Minecraft Command >");
+    await rcon.ConnectAsync();
+    await rcon.SendCommandAsync("< Minecraft Command >");
 }
 ```
 
