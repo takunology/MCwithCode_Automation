@@ -342,7 +342,7 @@ namespace Part7
 
                                 if (isPutable)
                                 {
-                                    result = await rcon.SendCommandAsync($"/setblock {x} {y} {z} minecraft:air");
+                                    result = await rcon.SendCommandAsync($"/setblock {x} {y} {z} minecraft:torch");
                                     Console.WriteLine(result);
                                 }
                             }

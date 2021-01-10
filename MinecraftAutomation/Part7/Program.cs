@@ -22,6 +22,7 @@ namespace Part7
             //除外するブロックリスト
             List<string> blockList = new List<string>
             {
+                "minecraft:cave_air",
                 "minecraft:air",
                 "minecraft:water",
                 "minecraft:lava"
