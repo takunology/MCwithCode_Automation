@@ -321,35 +321,30 @@ namespace Part7
                 {
                     if (x % 7 == 0 && z % 7 == 0)
                     {
-                        for (int y = 255; y > (int)PlayerPosY; y--)
+                        for (int y = 255; y > (int)PlayerPosY - 1; y--)
                         {
                             string result = await rcon.SendCommandAsync($"/execute if block {x} {y} {z} minecraft:air");
                             //その座標が空気ブロックである
                             if(result.Contains("passed"))
                             {
-                                //1ブロック下が空気ブロックでない
-                                result = await rcon.SendCommandAsync($"/execute if block {x} {y - 1} {z} minecraft:air");
-                                if (result.Contains("failed"))
-                                {
-                                    bool isPutable = true;
-                                    foreach(string block in BlockList)
-                                    {
-                                        //水源、溶岩だったら置けない
-                                        result = await rcon.SendCommandAsync($"/execute if block {x} {y - 1} {z} {block}");
-                                        if (result.Contains("passed"))
-                                        {
-                                            isPutable = false;
-                                            break;
-                                        }
-                                    }
-                                    if (isPutable)
-                                    {
-                                        result = await rcon.SendCommandAsync($"/setblock {x} {y} {z} minecraft:torch");
-                                        Console.WriteLine(result);
-                                    }
+                                bool isPutable = true;
 
+                                foreach (string block in BlockList)
+                                {
+                                    result = await rcon.SendCommandAsync($"/execute if block {x} {y - 1} {z} {block}");
+                                    //1ブロック下が空気、溶岩、水源ブロックの場合は松明を置けない
+                                    if (result.Contains("passed"))
+                                    {
+                                        isPutable = false;
+                                        break;
+                                    }
                                 }
 
+                                if (isPutable)
+                                {
+                                    result = await rcon.SendCommandAsync($"/setblock {x} {y} {z} minecraft:air");
+                                    Console.WriteLine(result);
+                                }
                             }
                         }
                     }

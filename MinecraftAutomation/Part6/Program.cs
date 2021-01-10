@@ -19,6 +19,8 @@ namespace Part6
             int y = (int)command.PlayerPosY;
             int z = (int)command.PlayerPosZ;
 
+            await command.GroundLeveling(x, y, z, x + 10, y + 10, z + 10);
+
             //任意のブロックを除外した整地
             List<string> Blocks = new List<string>
             {

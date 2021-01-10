@@ -253,7 +253,7 @@ namespace Part6
                         if (result.Contains("passed"))
                         {
                             Console.WriteLine(result);
-                            break;
+                            continue;
                         }
                         else
                         {
@@ -304,7 +304,5 @@ namespace Part6
                 }
             }
         }
-
-
     }
 }
