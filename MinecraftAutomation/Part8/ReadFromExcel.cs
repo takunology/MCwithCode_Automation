@@ -23,7 +23,7 @@ namespace Part8
 
                 //そのシート内の行数を得る
                 ISheet sheet = Book.GetSheetAt(i);
-                int ROW = sheet.LastRowNum;         
+                int ROW = sheet.LastRowNum + 1;
                 for(int j = 0; j < ROW; j++)
                 {
                     List<string> ColData = new List<string>();
@@ -36,14 +36,12 @@ namespace Part8
                         ICell CELL = row.GetCell(k);
 
                         ColData.Add(CELL.StringCellValue);
-                        Console.WriteLine($"{i} {j} {k} : {ColData[k]}");
+                        //Console.WriteLine($"{i} {j} {k} : {ColData[k]}");
                     }
-
                     RowData.Add(ColData);
                 }
                 BlockData.Add(RowData);
             }
-             
         }
 
         public List<List<List<string>>> GetBlockData()

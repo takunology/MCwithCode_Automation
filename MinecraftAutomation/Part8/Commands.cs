@@ -354,6 +354,27 @@ namespace Part8
         //ここから Part8
         public async Task Building(int x, int y, int z, ReadFromExcel BluePrint)
         {
+            // 読み込んだ設計図のブロックデータ
+            var BlockList = BluePrint.GetBlockData();
+            var CommandList = new List<string>();
+
+            for(int i = 0; i < BlockList.Count; i++)
+            {
+                for(int j = 0; j < BlockList[i].Count; j++)
+                {
+                    for(int k = 0; k < BlockList[i][j].Count; k++)
+                    {
+                        CommandList.Add($"/setblock {x + j} {y + i} {z + k} {BlockList[i][j][k]}");
+                    }
+                }
+            }
+
+            foreach(var item in CommandList)
+            {
+                await rcon.ConnectAsync();
+                string result = await rcon.SendCommandAsync(item);
+                Console.WriteLine(result);
+            }
 
         }
     }
