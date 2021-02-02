@@ -4,7 +4,7 @@ using System.Reflection.Metadata;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Part7
+namespace Part8
 {
     /// <summary>
     /// Minecraft に投げるコマンド
@@ -303,7 +303,6 @@ namespace Part7
             }
         }
 
-        //ここからPart7
         public async Task SetTorch(int x, int y, int z)
         {
             await rcon.ConnectAsync();
@@ -350,6 +349,12 @@ namespace Part7
                     }
                 }
             }
+        }
+
+        //ここから Part8
+        public async Task Building(int x, int y, int z, ReadFromExcel BluePrint)
+        {
+
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using CoreRCON;
 using System.Net;
 
-namespace Part7
+namespace Part8
 {
     /// <summary>
     /// サーバ接続用の設定

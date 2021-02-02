@@ -303,7 +303,6 @@ namespace Part7
             }
         }
 
-        //ここからPart7
         public async Task SetTorch(int x, int y, int z)
         {
             await rcon.ConnectAsync();
@@ -351,5 +350,9 @@ namespace Part7
                 }
             }
         }
+
+        //ここから Part8
+
+    
     }
 }

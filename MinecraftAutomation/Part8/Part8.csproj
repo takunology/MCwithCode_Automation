@@ -5,4 +5,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="CoreRCON" Version="5.0.0" />
+    <PackageReference Include="NPOI" Version="2.5.2" />
+  </ItemGroup>
+
 </Project>

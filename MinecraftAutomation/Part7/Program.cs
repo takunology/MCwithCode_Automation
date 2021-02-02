@@ -30,6 +30,8 @@ namespace Part7
             //一旦整地してから湧きつぶす(必要な場合)
             await command.GroundLeveling(x, y, z, x + 100, y + 1, z + 100);
             await command.SetTorch(x, z, x + 100, z + 100, blockList);
+
+             
         }
     }
 }
