@@ -8,7 +8,7 @@ namespace Part8
     public class ReadFromExcel
     {
         //ブロックの種類を格納
-        private List<List<List<string>>> BlockData = new List<List<List<string>>>();
+        public List<List<List<string>>> BlockData = new List<List<List<string>>>();
 
         public ReadFromExcel(string path)
         {
@@ -42,12 +42,6 @@ namespace Part8
                 }
                 BlockData.Add(RowData);
             }
-        }
-
-        public List<List<List<string>>> GetBlockData()
-        {
-            // 外部クラスに BlockData を渡す
-            return BlockData;
         }
     }
 }
