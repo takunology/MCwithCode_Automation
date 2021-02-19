@@ -81,9 +81,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\GitHub\\MCwithCode_Automation\\MinecraftAutomation\\Part2\\Part2.csproj",
-      "projectName": "Part2",
-      "projectPath": "F:\\GitHub\\MCwithCode_Automation\\MinecraftAutomation\\Part2\\Part2.csproj",
+      "projectUniqueName": "F:\\GitHub\\MCwithCode_Automation\\MinecraftAutomation\\Part2\\Part02.csproj",
+      "projectName": "Part02",
+      "projectPath": "F:\\GitHub\\MCwithCode_Automation\\MinecraftAutomation\\Part2\\Part02.csproj",
       "packagesPath": "C:\\Users\\takun\\.nuget\\packages\\",
       "outputPath": "F:\\GitHub\\MCwithCode_Automation\\MinecraftAutomation\\Part2\\obj\\",
       "projectStyle": "PackageReference",
@@ -101,6 +101,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\bin\\Debug": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

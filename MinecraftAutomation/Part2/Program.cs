@@ -3,7 +3,7 @@ using System;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace Part2
+namespace Part02
 {
     class Program
     {

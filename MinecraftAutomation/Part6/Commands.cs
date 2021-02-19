@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Part6
+namespace Part06
 {
     /// <summary>
     /// Minecraft に投げるコマンド

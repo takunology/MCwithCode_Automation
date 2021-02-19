@@ -1,0 +1,16 @@
+F:\GitHub\MCwithCode_Automation\MinecraftAutomation\Part2\bin\Debug\netcoreapp3.1\Part02.exe
+F:\GitHub\MCwithCode_Automation\MinecraftAutomation\Part2\bin\Debug\netcoreapp3.1\Part02.deps.json
+F:\GitHub\MCwithCode_Automation\MinecraftAutomation\Part2\bin\Debug\netcoreapp3.1\Part02.runtimeconfig.json
+F:\GitHub\MCwithCode_Automation\MinecraftAutomation\Part2\bin\Debug\netcoreapp3.1\Part02.runtimeconfig.dev.json
+F:\GitHub\MCwithCode_Automation\MinecraftAutomation\Part2\bin\Debug\netcoreapp3.1\Part02.dll
+F:\GitHub\MCwithCode_Automation\MinecraftAutomation\Part2\bin\Debug\netcoreapp3.1\Part02.pdb
+F:\GitHub\MCwithCode_Automation\MinecraftAutomation\Part2\bin\Debug\netcoreapp3.1\CoreRCON.dll
+F:\GitHub\MCwithCode_Automation\MinecraftAutomation\Part2\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+F:\GitHub\MCwithCode_Automation\MinecraftAutomation\Part2\obj\Debug\netcoreapp3.1\Part02.csprojAssemblyReference.cache
+F:\GitHub\MCwithCode_Automation\MinecraftAutomation\Part2\obj\Debug\netcoreapp3.1\Part02.AssemblyInfoInputs.cache
+F:\GitHub\MCwithCode_Automation\MinecraftAutomation\Part2\obj\Debug\netcoreapp3.1\Part02.AssemblyInfo.cs
+F:\GitHub\MCwithCode_Automation\MinecraftAutomation\Part2\obj\Debug\netcoreapp3.1\Part02.csproj.CoreCompileInputs.cache
+F:\GitHub\MCwithCode_Automation\MinecraftAutomation\Part2\obj\Debug\netcoreapp3.1\Part02.csproj.CopyComplete
+F:\GitHub\MCwithCode_Automation\MinecraftAutomation\Part2\obj\Debug\netcoreapp3.1\Part02.dll
+F:\GitHub\MCwithCode_Automation\MinecraftAutomation\Part2\obj\Debug\netcoreapp3.1\Part02.pdb
+F:\GitHub\MCwithCode_Automation\MinecraftAutomation\Part2\obj\Debug\netcoreapp3.1\Part02.genruntimeconfig.cache

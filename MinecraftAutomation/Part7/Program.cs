@@ -5,7 +5,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Part7
+namespace Part07
 {
     class Program
     {

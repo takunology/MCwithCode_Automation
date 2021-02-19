@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Part7
+namespace Part07
 {
     // アイテム（ブロック）の座標を出力する
     public class OutFiles

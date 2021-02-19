@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vO8nciEeTa0QkubSgL4gbNWKH+xwf2p9OwZ+Ia6OGh5k58Noh9oBj4O3FFp13MDoSaAqhzBUwFcJ1T7aH8RjGQ==",
+  "dgSpecHash": "1NIz7WoKQ5WSfv2GqTkT45nEOHQ3O4/D7yikvqN/XhxEpUI07Ki+zFAXdnlgoU0OLHXHz8K4/u4pn4ZiwO9z0g==",
   "success": true,
-  "projectFilePath": "F:\\GitHub\\MCwithCode_Automation\\MinecraftAutomation\\Part8\\Part8.csproj",
+  "projectFilePath": "F:\\GitHub\\MCwithCode_Automation\\MinecraftAutomation\\Part8\\Part08.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\takun\\.nuget\\packages\\corercon\\5.0.0\\corercon.5.0.0.nupkg.sha512",
     "C:\\Users\\takun\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",

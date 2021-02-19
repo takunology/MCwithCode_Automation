@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using NPOI.SS.UserModel;
 
-namespace Part8
+namespace Part08
 {
     public class ReadFromExcel
     {

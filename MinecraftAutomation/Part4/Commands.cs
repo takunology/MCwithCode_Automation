@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Part4
+namespace Part04
 {
     /// <summary>
     /// Minecraft に投げるコマンド
