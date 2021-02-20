@@ -13,12 +13,31 @@ namespace Part11
         {
             //コマンド用インスタンス
             Commands command = new Commands();
-            int x = 274;
-            int y = 66;
-            int z = 2902;
+            int x = 495;
+            int y = 65;
+            int z = 2951;
 
-            await command.CreateFarmland(x, y, z);
-            await command.Plant(x, y + 1, z);
+            /*for(int i = 0; i < 3; i++)
+            {
+                for(int j = 0; j < 6; j++)
+                {
+                    await command.CreateFarmland(x + i * 9, y, z + j * 9);
+                    if (i == 0)
+                        await command.Plant(x + i * 9, y + 1, z + j * 9, "minecraft:wheat");
+                    else if(i == 1)
+                        await command.Plant(x + i * 9, y + 1, z + j * 9, "minecraft:potatoes");
+                    else
+                        await command.Plant(x + i * 9, y + 1, z + j * 9, "minecraft:carrots");
+                }
+            }*/
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 6; j++)
+                {
+                    await command.AutoGetCrops(x + i * 9, y + 1, z + j * 9);
+                }
+            }
         }
     }
 }
