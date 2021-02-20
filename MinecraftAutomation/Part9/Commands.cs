@@ -43,5 +43,19 @@ namespace Part10
             }
             return ChestItems;
         }
+
+        public async Task SetChestItems(int x, int y, int z, List<SlotItem> SlotItems)
+        {
+            // storage -> append -> merge to chest -> remove
+            await rcon.ConnectAsync();
+            await rcon.SendCommandAsync("/data merge storage chestitems {Items:[]}");
+
+            foreach (var item in SlotItems.ToNBT())
+            {
+                await rcon.SendCommandAsync($"/data modify storage chestitems Items append value {item}");
+                await rcon.SendCommandAsync($"/data modify block {x} {y} {z} Items set from storage chestitems Items");
+            }
+            await rcon.SendCommandAsync($"/data remove storage chestitems Items");
+        }
     }
 }

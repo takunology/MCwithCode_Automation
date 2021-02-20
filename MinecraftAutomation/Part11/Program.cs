@@ -5,7 +5,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace Part10
+namespace Part11
 {
     class Program
     {
@@ -13,10 +13,12 @@ namespace Part10
         {
             //コマンド用インスタンス
             Commands command = new Commands();
-            //左側のチェスト内のアイテムを取得
-            var Items = await command.GetChestItems(237, 67, 2856);
-            //逆順に並べ替える
-            await command.SetChestItems(237, 67, 2854, Items.ReverseSortByID());
+            int x = 274;
+            int y = 66;
+            int z = 2902;
+
+            await command.CreateFarmland(x, y, z);
+            await command.Plant(x, y + 1, z);
         }
     }
 }
