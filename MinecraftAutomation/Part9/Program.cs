@@ -13,10 +13,9 @@ namespace Part10
         {
             //コマンド用インスタンス
             Commands command = new Commands();
-            //左側のチェスト内のアイテムを取得
-            var Items = await command.GetChestItems(237, 67, 2856);
-            //逆順に並べ替える
-            await command.SetChestItems(237, 67, 2854, Items.ReverseSortByID());
+
+            var Items = await command.GetChestItems(476, 65, 2965);
+            await command.SetChestItems(476, 65, 2963, Items.ReverseSortByID());
         }
     }
 }

@@ -114,7 +114,6 @@ namespace Part11
                                 else
                                     await rcon.SendCommandAsync($"/give Takunology wheat");
                                 await SetBlock(x + i, y, z + j, $"{Crop}[age=0]");
-                                await Task.Delay(100);
                             }
                             break;
                         }
