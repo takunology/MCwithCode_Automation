@@ -103,5 +103,9 @@ https://www.mcwithcode.com/Automation/Part7
 
 ## Part8 -建築の自動化-
 Excelで作成した設計図をもとに建築を自動で行います。</br>
-https://sites.google.com/view/mcwithcode/Automation/Building
+https://sites.google.com/view/mcwithcode/Automation/Part8
 
+
+## Part10 -アイテム整理の自動化-
+チェスト内のアイテムを並べ替えて整理します。</br>
+https://sites.google.com/view/mcwithcode/Automation/Part10
