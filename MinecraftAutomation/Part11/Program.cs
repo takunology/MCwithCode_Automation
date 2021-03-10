@@ -13,12 +13,12 @@ namespace Part11
         {
             //コマンド用インスタンス
             Commands command = new Commands();
-            int x = 495;
+            int x = 537;
             int y = 65;
-            int z = 2951;
+            int z = 2953;
 
-            /*for(int i = 0; i < 3; i++)
-            {
+           /*for(int i = 0; i < 3; i++)
+           {
                 for(int j = 0; j < 6; j++)
                 {
                     await command.CreateFarmland(x + i * 9, y, z + j * 9);

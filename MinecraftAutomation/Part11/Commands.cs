@@ -36,6 +36,31 @@ namespace Part11
             }
         }
 
+        public async Task WheatsStatus(int x, int y, int z)
+        {
+            await rcon.ConnectAsync();
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    if (i == 4 && j == 4)
+                    {
+                        Console.Write("W ");
+                        continue;
+                    }
+                    for(int k = 0; k < 8; k++)
+                    {
+                        string result = await rcon.SendCommandAsync($"/execute if block {x + i} {y} {z + j} minecraft:wheat[age={k}]");
+                        if (result.Contains("passed"))
+                        {
+                            Console.Write(k + " ");
+                        }
+                    }
+                }
+                Console.WriteLine();
+            }
+        }
+
         public async Task Plant(int x, int y, int z)
         {
             for (int i = 0; i < 9; i++)
@@ -114,6 +139,7 @@ namespace Part11
                                 else
                                     await rcon.SendCommandAsync($"/give Takunology wheat");
                                 await SetBlock(x + i, y, z + j, $"{Crop}[age=0]");
+                                await Task.Delay(50);
                             }
                             break;
                         }
