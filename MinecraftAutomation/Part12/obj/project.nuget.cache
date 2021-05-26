@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "/S1FZQWtqB8eovbAXylozKdQ0T5SS1NbZYkD0dmhNFfL7I5ZjU3VCm4BwbxfuasMuDH0kCb8jzLtYxOMuota3w==",
+  "success": true,
+  "projectFilePath": "D:\\GitHub\\MCwithCode_Automation\\MinecraftAutomation\\Part12\\Part12.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\takun\\.nuget\\packages\\corercon\\5.0.2\\corercon.5.0.2.nupkg.sha512",
+    "C:\\Users\\takun\\.nuget\\packages\\system.io.pipelines\\4.7.2\\system.io.pipelines.4.7.2.nupkg.sha512"
+  ],
+  "logs": []
+}

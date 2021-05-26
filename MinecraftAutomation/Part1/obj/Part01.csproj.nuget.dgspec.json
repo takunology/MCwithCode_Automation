@@ -1,22 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "F:\\GitHub\\MCwithCode_Automation\\MinecraftAutomation\\Part1\\Part01.csproj": {}
+    "D:\\GitHub\\MCwithCode_Automation\\MinecraftAutomation\\Part1\\Part01.csproj": {}
   },
   "projects": {
-    "F:\\GitHub\\MCwithCode_Automation\\MinecraftAutomation\\Part1\\Part01.csproj": {
+    "D:\\GitHub\\MCwithCode_Automation\\MinecraftAutomation\\Part1\\Part01.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\GitHub\\MCwithCode_Automation\\MinecraftAutomation\\Part1\\Part01.csproj",
+        "projectUniqueName": "D:\\GitHub\\MCwithCode_Automation\\MinecraftAutomation\\Part1\\Part01.csproj",
         "projectName": "Part01",
-        "projectPath": "F:\\GitHub\\MCwithCode_Automation\\MinecraftAutomation\\Part1\\Part01.csproj",
+        "projectPath": "D:\\GitHub\\MCwithCode_Automation\\MinecraftAutomation\\Part1\\Part01.csproj",
         "packagesPath": "C:\\Users\\takun\\.nuget\\packages\\",
-        "outputPath": "F:\\GitHub\\MCwithCode_Automation\\MinecraftAutomation\\Part1\\obj\\",
+        "outputPath": "D:\\GitHub\\MCwithCode_Automation\\MinecraftAutomation\\Part1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
           "C:\\Users\\takun\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -29,8 +28,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Users\\takun\\Desktop\\MinecraftConnectionCore": {},
-          "F:\\GitHub\\MinecraftConnection\\MinecraftConnection\\MinecraftConnection\\bin\\Debug": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -69,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
